@@ -1,0 +1,398 @@
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.page {
+    width: 1600px;
+    height: 5648px;
+    gap: 0px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header {
+    width: 1600px;
+    height: 800px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: 
+        linear-gradient(200.43deg, rgba(126, 90, 255, 0.5) 16.9%, rgba(85, 183, 255, 0.5) 83.27%), 
+        url('img/45.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Навигация */
+.nav-container {
+    width: 1170px;
+    height: 54px;
+    position: absolute;
+    top: 53px;
+    left: 215px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 241px;
+    height: 54px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.menu-ellipse {
+    width: 8px;
+    height: 8px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 15px;
+}
+
+.menu-ellipse.active {
+    background-color: #FFFFFF;
+}
+
+.menu a {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.6px;
+    text-align: left;
+    text-decoration: none;
+    color: #ffffff;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Эффекты при наведении и фокусе */
+.menu a:hover,
+.menu a:focus {
+    color: #55B7FF;
+}
+
+.menu-ellipse:hover,
+.menu-ellipse:focus {
+    background-color: #FFFFFF;
+}
+
+.social-icons ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    margin-right: 20px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover,
+.social-icons img:focus {
+    transform: scale(1.1);
+}
+
+/* Заголовок и подзаголовок */
+.heading-text {
+    width: 919px;
+    height: 98px;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 97.52px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #FFFFFF;
+    background: transparent;
+    margin: 0;
+}
+
+.subheading-text {
+    width: 614.34px;
+    height: 22px;
+    position: absolute;
+    top: 370px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.94px;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: #FFFFFF;
+    background: transparent;
+    margin: 0;
+}
+
+/* Стрелка */
+.arrow-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 710px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.arrow-container img {
+    width: 15px;
+    height: 15px;
+}
+
+.arrow-container:hover,
+.arrow-container:focus {
+    transform: scale(1.1);
+}
+
+/* Контейнер точек */
+.dots-container {
+    width: 10px;
+    position: absolute;
+    top: 200px;
+    left: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+    background: transparent;
+}
+
+.dot {
+    margin-bottom: 20px;
+}
+
+.ellipse {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #a20a0a;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ellipse.active {
+    background-color: #FFFFFF;
+}
+
+.ellipse:hover,
+.ellipse:focus {
+    background-color: #FFFFFF;
+    transform: scale(1.1);
+}
+/* Контейнер Projects */
+.projects-container {
+    width: 1600px;
+    height: 1348px;
+    position: absolute;
+    top: 900px;
+    left: 0;
+    border: 1px solid #2C4058;
+    background-color: #ffffff;
+}
+
+/* Контейнер Title */
+.projects-title {
+    width: 324px;
+    height: 84px;
+    position: absolute;
+    top: 900px;
+    left: 638px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Линия над текстом */
+.projects-line {
+    width: 100px;
+    height: 0;
+    border-top: 1px solid #2C4058;
+    position: absolute;
+    top: -30px; /* Позиционируем линию над текстом */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Текст заголовка */
+.projects-text {
+    width: 324px;
+    height: 54px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53.64px;
+    text-align: center;
+    color: #2C4058; /* Цвет текста белый */
+    padding-top: 20px;
+}
+
+
+/* Контент внутри секции Projects */
+.projects-content {
+    width: 1385px;
+    height: 527px;
+    position: absolute;
+    top: 1074px;
+    left: 108px; /* Смещаем весь блок влево для центрирования */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Секция с изображениями */
+.project-images {
+    width: 845px;
+    height: 527px;
+    position: relative;
+}
+
+.image-1 {
+    width: 630px;
+    height: 470px;
+    position: absolute;
+    top: 57px; /* Смещаем вниз для наложения */
+    left: 0;
+}
+
+.image-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-2 {
+    width: 585px;
+    height: 470px;
+    position: absolute;
+    top: 0;
+    left: 260px;
+}
+
+.image-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Секция с текстовой информацией о проекте */
+.project-details {
+    width: 470px;
+    height: 350px;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.project-detail-text {
+    margin-bottom: 20px;
+}
+
+.detail-title-small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #2C4058;
+    margin-bottom: 10px;
+}
+
+.detail-title-large {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #2C4058;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #2C4058;
+}
+
+/* Кнопка More Details */
+.more-details-button {
+    margin-top: 40px;
+}
+
+.details-btn {
+    width: 190px;
+    height: 50px;
+    border: 1px solid #2C4058;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #2C4058;
+    color: #FFFFFF;
+}
+
+/* Информация о местоположении */
+.location-info {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.location-icon {
+    width: 9px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.location-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 20.43px;
+    color: #000000;
+}
