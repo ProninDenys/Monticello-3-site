@@ -1,3 +1,4 @@
+/* Основные стили */
 body {
     margin: 0;
     padding: 0;
@@ -7,11 +8,13 @@ body {
 }
 
 .page {
-    max-width: 1200px; /* Максимальная ширина страницы */
-    margin: 0 auto; /* Центрирование страницы */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
     position: relative;
 }
 
+/* Хедер */
 .header {
     width: 100%;
     min-height: 800px; /* Минимальная высота */
@@ -170,7 +173,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Контейнер точек */
+/* Контейнер точек (Dots) в хедере */
 .dots-container {
     width: 10px;
     position: absolute;
@@ -366,7 +369,6 @@ body {
     margin-top: 40px;
 }
 
-
 /* Информация о местоположении */
 .location-info {
     margin-top: 30px;
@@ -414,13 +416,289 @@ body {
 
 .projects-content-2 .image-2 {
     position: absolute;
-    top: 100px;
+    top: 150px;
     left: 150px;
 }
 
 .projects-content-2 .image-1 {
     position: absolute;
-    top: 57px;
+    top: 90px;
     left: 220px;
+}
 
+/* News Container */
+.news-container {
+    position: relative;
+    width: 100vw; /* Занимает всю ширину экрана */
+    height: 978px;
+    margin: 0 auto;
+    margin-top: 100px; /* Отступ сверху */
+    padding: 0;
+    background: 
+        linear-gradient(237.1deg, rgba(36, 204, 250, 0.5) 11.16%, rgba(60, 127, 212, 0.5) 89.18%),
+        url('img1.') no-repeat center center;
+    background-size: cover;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+    overflow: hidden; /* Убираем возможность горизонтальной прокрутки */
+}
+
+/* Title Section */
+.news-title {
+    width: 327px;
+    height: 84px;
+    margin: 50px auto 0 auto; /* Центрирование и отступ сверху */
+    text-align: center;
+    position: relative;
+}
+
+.news-line {
+    width: 100px;
+    border-top: 1px solid #FFFFFF;
+    margin: 0 auto 10px auto; /* Центрирование и отступ снизу */
+}
+
+.news-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.64px;
+    color: #FFFFFF;
+    margin-top: 25px;
+}
+
+/* Articles Section */
+.articles-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px; /* Используйте пиксели для контроля */
+    margin-top: 50px;
+    padding: 0 170px; /* Добавьте внутренние отступы слева и справа */
+}
+
+.article {
+    width: 340px;
+    height: 514px;
+    border: 1px solid #FFFFFF;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article-image {
+    width: 100%;
+    height: 240px;
+    margin: 0; /* Убираем любые внешние отступы */
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображение будет обрезаться, чтобы заполнить блок */
+    display: block; /* Убираем любые дополнительные отступы/поля */
+}
+
+.article-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26.82px;
+    color: #2C4058;
+    text-align: left;
+    margin-left: 20px;
+
+}
+
+.article-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.51px;
+    color: #2C4058;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.article-author {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    margin-left: 10px;
+}
+
+.author-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.94px;
+    color: #2C4058;
+}
+
+.author-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    color: #55B7FF;
+    margin-top: 10px;
+}
+
+/* Стрелки слайдера */
+.slider-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 70px; /* Позиционирование слева */
+}
+
+.right-arrow {
+    right: 70px; /* Позиционирование справа */
+}
+
+.slider-arrow img {
+    width: 40px;
+    height: 40px;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Секция для индикаторов Dots */
+.slider-dots {
+    width: 210px;
+    height: 10px;
+    margin: 30px auto 0 auto; /* Центрирование секции */
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение точек */
+    position: relative;
+    z-index: 5;
+    margin-top: 70px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #FFFFFF; /* Заполняем кружок белым цветом */
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* Gallery Container */
+.gallery-container {
+    width: 1170px;
+    margin: 0 auto;
+   
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-line {
+    width: 100px;
+    height: 1px;
+    background-color: #2C4058;
+    margin: 0 auto 10px auto;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.gallery-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #2C4058;
+    margin-bottom: 50px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.large-image {
+    width: 580px;
+    height: 438px;
+    margin-bottom: 20px;
+}
+
+.small-image {
+    width: 285px;
+    height: 214px;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.see-more-btn {
+    width: 190px;
+    height: 50px;
+    border: 1px solid #2C4058;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #2C4058;
+    color: #FFFFFF;
 }
