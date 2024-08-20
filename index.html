@@ -1,284 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monticello</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="img/favic.png" type="image/png" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400&display=swap"
-        rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400&display=swap"
+      rel="stylesheet"
     />
-</head>
-<body>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+  <body>
     <div class="page">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="img/Logo.svg" alt="Логотип" />
+      <!-- Header Section -->
+      <header class="header">
+        <div class="nav-container">
+          <div class="logo">
+            <img src="img/Logo.svg" alt="Логотип" />
+          </div>
+          <nav class="menu">
+            <ul>
+              <li>
+                <div class="menu-item">
+                  <div class="menu-ellipse"></div>
+                  <a href="#">ABOUT US</a>
                 </div>
-                <nav class="menu">
-                    <ul>
-                        <li>
-                            <div class="menu-item">
-                                <div class="menu-ellipse"></div>
-                                <a href="#">ABOUT US</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="menu-item">
-                                <div class="menu-ellipse"></div>
-                                <a href="#">PROJECTS</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="menu-item">
-                                <div class="menu-ellipse"></div>
-                                <a href="#">NEWS</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="menu-item">
-                                <div class="menu-ellipse"></div>
-                                <a href="#">CONTACT</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="social-icons">
-                    <ul>
-                        <li>
-                            <a href="#"><img src="img/fac.png" alt="Facebook" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="img/twitter.png" alt="Twitter" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="img/ins.png" alt="Instagram" /></a>
-                        </li>
-                    </ul>
+              </li>
+              <li>
+                <div class="menu-item">
+                  <div class="menu-ellipse"></div>
+                  <a href="#">PROJECTS</a>
                 </div>
-            </div>
-            <div class="heading-text">SIMPLE & MODERN</div>
-            <div class="subheading-text">WE MAKE THE WORLD BEAUTIFUL EVERYDAY</div>
-            <div class="arrow-container">
-                <img src="img/2.svg" alt="Arrow Down" />
-            </div>
-            <!-- Удаляем лишние Dots, оставляем только 4 -->
-            <div class="dots-container">
-                <div class="dot">
-            
+              </li>
+              <li>
+                <div class="menu-item">
+                  <div class="menu-ellipse"></div>
+                  <a href="#">NEWS</a>
                 </div>
-                <div class="dot">
-                    
+              </li>
+              <li>
+                <div class="menu-item">
+                  <div class="menu-ellipse"></div>
+                  <a href="#">CONTACT</a>
                 </div>
-                <div class="dot">
-                
-                </div>
-                <div class="dot">
-                  
-                </div>
-                <div class="dot">
-                </div>   
-            </div>
-            <div class="dot">
-              
-            
-            </div>
-        </header>
+              </li>
+            </ul>
+          </nav>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a href="#"><img src="img/fac.png" alt="Facebook" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="img/twitter.png" alt="Twitter" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="img/ins.png" alt="Instagram" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="heading-text">SIMPLE & MODERN</div>
+        <div class="subheading-text">WE MAKE THE WORLD BEAUTIFUL EVERYDAY</div>
+        <div class="arrow-container">
+          <img src="img/2.svg" alt="Arrow Down" />
+        </div>
+        <!-- Удаляем лишние Dots, оставляем только 4 -->
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="dot"></div>
+      </header>
 
-        <!-- Projects Section -->
-        <div class="projects-container">
-            <div class="projects-title">
-                <div class="projects-line"></div>
-                <div class="projects-text">WHAT WE DO</div>
+      <!-- Projects Section -->
+      <div class="projects-container">
+        <div class="projects-title">
+          <div class="projects-line"></div>
+          <div class="projects-text">WHAT WE DO</div>
+        </div>
+        <div class="projects-content">
+          <div class="project-images">
+            <div class="image-1">
+              <img src="img/Rectangle 3.svg" alt="Project Image 1" />
             </div>
-            <div class="projects-content">
-                <div class="project-images">
-                    <div class="image-1">
-                        <img src="img/Rectangle 3.svg" alt="Project Image 1" />
-                    </div>
-                    <div class="image-2">
-                        <img src="img/Mask Group.svg" alt="Project Image 2" />
-                    </div>
-                </div>
-                <div class="project-details">
-                    <div class="project-detail-text">
-                        <div class="detail-title-small">ONE WORLD</div>
-                        <div class="detail-title-large">TRADE CENTER</div>
-                        <div class="detail-description">
-                            Increasing prosperity in our lives can be accomplished by having
-                            the right frame of mind. The truth is, our thoughts are very
-                            powerful.
-                        </div>
-                    </div>
-                    <div class="more-details-button">
-                        <button class="details-btn">MORE DETAILS</button>
-                    </div>
-                    <div class="location-info">
-                        <img src="img/4.svg" alt="Location Icon" class="location-icon" />
-                        <div class="location-text">
-                            New York City, United States - 1776 feet
-                        </div>
-                    </div>
-                </div>
+            <div class="image-2">
+              <img src="img/Mask Group.svg" alt="Project Image 2" />
             </div>
-            <div class="projects-content-2">
-                <div class="project-details">
-                    <div class="project-detail-text">
-                        <div class="detail-title-small">INTERNATIONAL</div>
-                        <div class="detail-title-large">COMMERCE CENTRE</div>
-                        <div class="detail-description">
-                            Successful businesses have many things in common, today we’ll
-                            look at the big ‘R’ of recognition and how a digital advertising
-                            network may help.
-                        </div>
-                    </div>
-                    <div class="more-details-button">
-                        <button class="details-btn">MORE DETAILS</button>
-                    </div>
-                    <div class="location-info">
-                        <img src="img/4.svg" alt="Location Icon" class="location-icon" />
-                        <div class="location-text">Hong Kong - 1588 feet</div>
-                    </div>
-                </div>
-                <div class="project-images">
-                    <div class="image-1">
-                        <img src="img/45.svg" alt="Project Image 1" />
-                    </div>
-                    <div class="image-2">
-                        <img src="img/46.svg" alt="Project Image 2" />
-                    </div>
-                </div>
+          </div>
+          <div class="project-details">
+            <div class="project-detail-text">
+              <div class="detail-title-small">ONE WORLD</div>
+              <div class="detail-title-large">TRADE CENTER</div>
+              <div class="detail-description">
+                Increasing prosperity in our lives can be accomplished by having
+                the right frame of mind. The truth is, our thoughts are very
+                powerful.
+              </div>
             </div>
+            <div class="more-details-button">
+              <button class="details-btn">MORE DETAILS</button>
+            </div>
+            <div class="location-info">
+              <img src="img/4.svg" alt="Location Icon" class="location-icon" />
+              <div class="location-text">
+                New York City, United States - 1776 feet
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-content-2">
+          <div class="project-details">
+            <div class="project-detail-text">
+              <div class="detail-title-small">INTERNATIONAL</div>
+              <div class="detail-title-large">COMMERCE CENTRE</div>
+              <div class="detail-description">
+                Successful businesses have many things in common, today we’ll
+                look at the big ‘R’ of recognition and how a digital advertising
+                network may help.
+              </div>
+            </div>
+            <div class="more-details-button">
+              <button class="details-btn">MORE DETAILS</button>
+            </div>
+            <div class="location-info">
+              <img src="img/4.svg" alt="Location Icon" class="location-icon" />
+              <div class="location-text">Hong Kong - 1588 feet</div>
+            </div>
+          </div>
+          <div class="project-images">
+            <div class="image-1">
+              <img src="img/45.svg" alt="Project Image 1" />
+            </div>
+            <div class="image-2">
+              <img src="img/46.svg" alt="Project Image 2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Container -->
+      <div class="news-container">
+        <!-- Левая стрелка -->
+        <div class="slider-arrow left-arrow">
+          <img src="img/Left.svg" alt="Left Arrow" />
         </div>
 
-        <!-- News Container -->
-        <div class="news-container">
-            <!-- Левая стрелка -->
-            <div class="slider-arrow left-arrow">
-                <img src="img/Left.svg" alt="Left Arrow" />
-            </div>
-
-            <!-- Title Section -->
-            <div class="news-title">
-                <div class="news-line"></div>
-                <div class="news-text">LATEST NEWS</div>
-            </div>
-            
-            <!-- Articles Section -->
-            <div class="articles-container">
-                <!-- Article 1 -->
-                <div class="article">
-                    <div class="article-image">
-                        <img src="img/news1.svg" alt="Article Image" />
-                    </div>
-                    <div class="article-title">
-                        SEE THE UNMATCHED BEAUTY OF THE GREAT.
-                    </div>
-                    <div class="article-description">
-                        Free directories: directories are perfect for customers that are searching for...
-                    </div>
-                    <div class="article-author">
-                        <div class="author-image">
-                            <img src="img/author.svg" alt="Author Image" />
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">ALJA BRUN</div>
-                            <div class="author-date">20 Jan 2020</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Article 2 -->
-                <div class="article">
-                    <div class="article-image">
-                        <img src="img/news2.svg" alt="Article Image 2" />
-                    </div>
-                    <div class="article-title">EFFECTIVE ADVERTISING POINTERS.</div>
-                    <div class="article-description">
-                        Having a home based business is a wonderful asset to your life...
-                    </div>
-                    <div class="article-author">
-                        <div class="author-image">
-                            <img src="img/author 2 .svg" alt="Author Image" />
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">DOMINIC FREEMAN</div>
-                            <div class="author-date">13 Dec 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Article 3 -->
-                <div class="article">
-                    <div class="article-image">
-                        <img src="img/news3.svg" alt="Article Image 3" />
-                    </div>
-                    <div class="article-title">
-                        HYPNOTIZE YOURSELF INTO THE GHOST.
-                    </div>
-                    <div class="article-description">
-                        There are many things that are important to catalog design...
-                    </div>
-                    <div class="article-author">
-                        <div class="author-image">
-                            <img src="img/author3.svg" alt="Author Image" />
-                        </div>
-                        <div class="author-info">
-                            <div class="author-name">ALICE WARD</div>
-                            <div class="author-date">30 Nov 2019</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Правая стрелка -->
-            <div class="slider-arrow right-arrow">
-                <img src="img/Right.svg" alt="Right Arrow" />
-            </div>
-
-            <!-- Dots (индикаторы) -->
-            <div class="slider-dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
+        <!-- Title Section -->
+        <div class="news-title">
+          <div class="news-line"></div>
+          <div class="news-text">LATEST NEWS</div>
         </div>
+
+        <!-- Articles Section -->
+        <div class="articles-container">
+          <!-- Article 1 -->
+          <div class="article">
+            <div class="article-image">
+              <img src="img/news1.svg" alt="Article Image" />
+            </div>
+            <div class="article-title">
+              SEE THE UNMATCHED BEAUTY OF THE GREAT.
+            </div>
+            <div class="article-description">
+              Free directories: directories are perfect for customers that are
+              searching for...
+            </div>
+            <div class="article-author">
+              <div class="author-image">
+                <img src="img/author.svg" alt="Author Image" />
+              </div>
+              <div class="author-info">
+                <div class="author-name">ALJA BRUN</div>
+                <div class="author-date">20 Jan 2020</div>
+              </div>
+            </div>
+          </div>
+          <!-- Article 2 -->
+          <div class="article">
+            <div class="article-image">
+              <img src="img/news2.svg" alt="Article Image 2" />
+            </div>
+            <div class="article-title">EFFECTIVE ADVERTISING POINTERS.</div>
+            <div class="article-description">
+              Having a home based business is a wonderful asset to your life...
+            </div>
+            <div class="article-author">
+              <div class="author-image">
+                <img src="img/author 2 .svg" alt="Author Image" />
+              </div>
+              <div class="author-info">
+                <div class="author-name">DOMINIC FREEMAN</div>
+                <div class="author-date">13 Dec 2019</div>
+              </div>
+            </div>
+          </div>
+          <!-- Article 3 -->
+          <div class="article">
+            <div class="article-image">
+              <img src="img/news3.svg" alt="Article Image 3" />
+            </div>
+            <div class="article-title">HYPNOTIZE YOURSELF INTO THE GHOST.</div>
+            <div class="article-description">
+              There are many things that are important to catalog design...
+            </div>
+            <div class="article-author">
+              <div class="author-image">
+                <img src="img/author3.svg" alt="Author Image" />
+              </div>
+              <div class="author-info">
+                <div class="author-name">ALICE WARD</div>
+                <div class="author-date">30 Nov 2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая стрелка -->
+        <div class="slider-arrow right-arrow">
+          <img src="img/Right.svg" alt="Right Arrow" />
+        </div>
+
+        <!-- Dots (индикаторы) -->
+        <div class="slider-dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
     </div>
     <div class="gallery-container">
-        <div class="gallery-title">
-            <div class="gallery-line"></div>
-            <div class="gallery-text">GALLERY</div>
+      <div class="gallery-title">
+        <div class="gallery-line"></div>
+        <div class="gallery-text">GALLERY</div>
+      </div>
+      <div class="gallery-images">
+        <div class="gallery-image large-image">
+          <img
+            src="img/gallery/scott-webb-176434 1.svg"
+            alt="Gallery Image 1"
+          />
         </div>
-        <div class="gallery-images">
-            <div class="gallery-image large-image">
-                <img src="img/gallery/scott-webb-176434 1.svg" alt="Gallery Image 1">
-            </div>
-            <div class="gallery-small-images">
-                <div class="gallery-image small-image">
-                    <img src="img/gallery/photos-13323p6Bdc0uhr8Bq 1.svg" alt="Gallery Image 2">
+        <div class="gallery-small-images">
+          <div class="gallery-image small-image">
+            <img
+              src="img/gallery/photos-13323p6Bdc0uhr8Bq 1.svg"
+              alt="Gallery Image 2"
+            />
+          </div>
+          <div class="gallery-image small-image">
+            <img
+              src="img/gallery/fuse-brussels-169216 1.svg"
+              alt="Gallery Image 3"
+            />
+          </div>
+        </div>
+        <div class="gallery-small-images">
+          <div class="gallery-image small-image">
+            <img
+              src="img/gallery/echo-grid-156713 1.svg"
+              alt="Gallery Image 4"
+            />
+          </div>
+          <div class="gallery-image small-image">
+            <img
+              src="img/gallery/tu-tram-pham-202263 2.svg"
+              alt="Gallery Image 5"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="gallery-button">
+        <button class="see-more-btn">SEE MORE</button>
+      </div>
+      <div class="contact-container">
+        <div id="map" style="width: 100%; height: 500px;"></div>
+        <div class="contact-form-container">
+            <h2 class="contact-title">GET IN TOUCH</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt custom-icon"></i> 91 Nolan Extensions Suite 670</p>
+                    <p><i class="fas fa-phone-alt custom-icon"></i> +001 356-868-2454</p>
+                    <p><i class="fas fa-envelope custom-icon"></i> montichello@service.com</p>
+                    <p><i class="fas fa-clock custom-icon"></i> From 07:05AM to 19:30PM</p>
                 </div>
-                <div class="gallery-image small-image">
-                    <img src="img/gallery/fuse-brussels-169216 1.svg" alt="Gallery Image 3">
-                </div>
-            </div>
-            <div class="gallery-small-images">
-                <div class="gallery-image small-image">
-                    <img src="img/gallery/echo-grid-156713 1.svg" alt="Gallery Image 4">
-                </div>
-                <div class="gallery-image small-image">
-                    <img src="img/gallery/tu-tram-pham-202263 2.svg" alt="Gallery Image 5">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="input-field" value="Mollie Medina" />
+                        <hr>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="input-field" placeholder="Email" />
+                        <hr>
+                    </div>
+                    <button type="submit" class="submit-btn">SUBMIT</button>
                 </div>
             </div>
         </div>
-        <div class="gallery-button">
-            <button class="see-more-btn">SEE MORE</button>
-        </div>
-    
     </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
