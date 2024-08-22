@@ -7,6 +7,11 @@ body {
     overflow-x: hidden;
 }
 
+  /* Плавная прокрутка */
+  html {
+    scroll-behavior: smooth;
+  }
+
 .page {
     max-width: 100%;
     margin: 0 auto;
@@ -25,6 +30,45 @@ body {
     background-size: cover;
 }
 
+/* Слайдер в хедере */
+.header-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 800px; 
+}
+
+.header-slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.header-slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+.header-slide.previous {
+  left: -100%;
+}
+
+/* Слой наложения градиента для достижения нужного цвета */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(200.43deg, rgba(126, 90, 255, 0.6) 16.9%, rgba(85, 183, 255, 0.6) 83.27%);
+    z-index: 1;
+}
+
 /* Навигация */
 .nav-container {
     width: 100%;
@@ -34,7 +78,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 53px 15px;
+    padding: 80px 15px;
+}
+
+.nav-container,
+.heading-text,
+.subheading-text,
+.social-icons,
+.dots-container {
+    position: relative;
+    z-index: 2;
 }
 
 .logo img {
@@ -56,9 +109,9 @@ body {
 }
 
 .menu-ellipse {
-    width: 8px;
-    height: 8px;
-    border: 2px solid #FFFFFF;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #FFFFFF;
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
@@ -96,6 +149,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    gap: 10px;
 }
 
 .social-icons li {
@@ -110,6 +164,7 @@ body {
 
 .social-icons img:hover,
 .social-icons img:focus {
+    opacity: 1;
     transform: scale(1.1);
 }
 
@@ -118,7 +173,7 @@ body {
     width: 100%;
     max-width: 919px;
     position: absolute;
-    top: 290px;
+    top: 150px;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Montserrat', sans-serif;
@@ -134,7 +189,7 @@ body {
     width: 100%;
     max-width: 614.34px;
     position: absolute;
-    top: 390px;
+    top: 300px;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Montserrat', sans-serif;
@@ -160,17 +215,23 @@ body {
     border: 1px solid #FFFFFF;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    background-color: transparent;
+    z-index: 2; 
+    transition: background-color 0.3s ease; 
 }
 
 .arrow-container img {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s ease; 
 }
 
-.arrow-container:hover,
-.arrow-container:focus {
-    transform: scale(1.1);
+.arrow-container:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.arrow-container:hover img {
+    transform: scale(1.2); 
 }
 
 /* Контейнер точек (Dots) в хедере */
@@ -203,6 +264,7 @@ body {
 
 .ellipse.active {
     background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
 }
 
 .ellipse:hover,
@@ -252,6 +314,7 @@ body {
     text-align: center;
     color: #2C4058;
     padding-top: 0px;
+    margin-top: 20px;
 }
 
 /* Контент внутри секции Projects */
@@ -289,8 +352,8 @@ body {
 
 .image-2 {
     width: 100%;
-    max-width: 585px;
-    height: 470px;
+    max-width: 575px;
+    height: 450px;
     position: absolute;
     top: 100px;
     left: 260px;
@@ -326,7 +389,7 @@ body {
 
 .detail-title-large {
     font-family: 'Montserrat', sans-serif;
-    font-size: 44px;
+    font-size: 36px;
     font-weight: 700;
     color: #2C4058;
     margin-bottom: 20px;
@@ -338,11 +401,12 @@ body {
     font-weight: 400;
     line-height: 30px;
     color: #2C4058;
+    text-align: justify;
 }
 
 /* Кнопка More Details */
 .more-details-button {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .details-btn {
@@ -443,6 +507,28 @@ body {
     overflow: hidden;
 }
 
+/* Слайдер в News */
+.news-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 70px;
+  transition: transform 0.5s ease-in-out;
+  margin-left: 40px;
+  position: relative;
+  
+}
+
+.news-slide {
+    min-width: 33.33%; 
+    margin-right: -80px; 
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out;
+    flex-shrink: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
 /* Title Section */
 .news-title {
     width: 327px;
@@ -450,7 +536,10 @@ body {
     margin: 50px auto 0 auto;
     text-align: center;
     position: relative;
+    text-align: center;
+
 }
+
 
 .news-line {
     width: 100px;
@@ -471,9 +560,8 @@ body {
 .articles-container {
     display: flex;
     justify-content: space-between;
-    gap: 1px;
-    margin-top: 50px;
-    padding: 0 170px;
+    gap: 10px;
+    margin: 0 60px; 
 }
 
 .article {
@@ -484,6 +572,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-left: 120px;
+    
+    
 }
 
 .article-image {
@@ -507,16 +598,18 @@ body {
     color: #2C4058;
     text-align: left;
     margin-left: 20px;
+    
 }
 
 .article-description {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 24.51px;
     color: #2C4058;
     text-align: left;
     margin-left: 20px;
+    margin-top: -30px;
 }
 
 .article-author {
@@ -530,6 +623,7 @@ body {
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: -10px;
 }
 
 .author-image img {
@@ -548,6 +642,7 @@ body {
     font-weight: 400;
     line-height: 21.94px;
     color: #2C4058;
+    margin-top: -5px;
 }
 
 .author-date {
@@ -557,6 +652,7 @@ body {
     line-height: 17.07px;
     color: #55B7FF;
     margin-top: 10px;
+    margin-top: -5px;
 }
 
 /* Стрелки слайдера */
@@ -573,6 +669,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    margin-top: 20px;
 }
 
 .left-arrow {
@@ -657,19 +754,20 @@ body {
 .gallery-images {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Центрирует изображения */
-    gap: 20px; /* Устанавливает одинаковое расстояние между изображениями */
+    justify-content: center; 
+    gap: 20px; 
 }
+
 .large-image {
     width: 580px;
     height: 438px;
-    margin-bottom: 20px; /* Отступ снизу для равномерного расположения */
+    margin-bottom: 20px; 
 }
 
 .small-image {
     width: 285px;
     height: 214px;
-    margin-bottom: 10px; /* Отступ снизу для равномерного расположения */
+    margin-bottom: 10px; 
 }
 
 .gallery-image img {
@@ -680,8 +778,8 @@ body {
 
 .gallery-button {
     text-align: center;
-    margin-top: -140px; /* Увеличен отступ сверху */
-    padding-bottom: 60px; /* Добавлен отступ снизу */
+    margin-top: -140px;
+    padding-bottom: 60px;
 }
 
 .see-more-btn {
@@ -704,10 +802,10 @@ body {
 
 .gallery-images {
     display: grid;
-    grid-template-columns: 580px 285px 285px; /* Колонки для крупного и двух мелких изображений */
-    grid-template-rows: 438px 214px; /* Строки для крупного и мелких изображений */
-    grid-gap: 20px; /* Расстояние между изображениями */
-    justify-content: center; /* Центрирование по горизонтали */
+    grid-template-columns: 580px 285px 285px; 
+    grid-template-rows: 438px 214px; 
+    grid-gap: 20px; 
+    justify-content: center; 
     margin: 0 auto;
 }
 
@@ -737,139 +835,486 @@ body {
 }
 
 .contact-container {
-    position: relative; /* Родительский контейнер должен иметь position: relative */
-    width: 100%;
+    position: relative;
+    width: 100%; 
+    max-width: 1600px; 
     height: 500px;
+    margin: 0 auto;
 }
 
 #map {
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    z-index: 500;
 }
-
 
 .contact-form-container {
-    width: 770px;
-    height: 450px;
+    width: 550px; 
+    height: 300px;
     padding: 20px;
     position: absolute;
-    top: 50%; /* Центрирование по вертикали */
-    left: 50%; /* Центрирование по горизонтали */
-    transform: translate(-50%, -50%); /* Центрирование */
-    background: url('img/222.svg') no-repeat center center;/* Убедитесь, что путь к изображению корректен */
-    background-size: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #2C4058;
-    z-index: 1000;
-    opacity: 0; /* Изначально скрыто */
-    visibility: hidden; /* Изначально скрыто */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; 
+    z-index: 1000; 
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+
 }
-    .contact-title {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 44px;
-        font-weight: 700;
-        line-height: 53.64px;
+
+/* Псевдоэлемент для добавления фона */
+.contact-form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/3333.png') center center / cover no-repeat;  
+    z-index: -1; 
+    opacity: 6%; 
+}
+
+.contact-form-container * {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; 
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: #2C4058;
+    margin-bottom: 25px;
+}
+
+.contact-line {
+    width: 100px; 
+    height: 1px;
+    background-color: #2C4058; 
+    margin: 0 auto 10px auto; 
+    margin-top: 10px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
+.contact-info {
+    width: 55%; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 16px; 
+    font-weight: 400; 
+    line-height: 1.6; 
+    color: #2C4058;
+}
+
+.custom-icon {
+    color: #7E5AFF;
+    margin-right: 10px; 
+    font-size: 10px; 
+    vertical-align: middle; 
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.contact-form {
+    width: 45%; 
+}
+
+.form-group {
+    margin-bottom: 10px; 
+}
+
+/* Стили для текстового поля и email */
+.input-field {
+    width: 100%;
+    height: 41px;
+    border: none;
+    color: #A9A9A9; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    padding-left: 5px; 
+    box-sizing: border-box;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    background-color: transparent; 
+    margin-bottom: 12px; 
+}
+
+.input-field::placeholder {
+    color: #A9A9A9; 
+}
+
+/* Стили при фокусе на поле ввода */
+.input-field:focus {
+    outline: none; 
+    color: #000000;
+    border-bottom-color: #000000; 
+}
+
+/* Стили при наведении на поле ввода */
+.input-field:hover {
+    color: #000000; 
+    border-bottom-color: #000000;
+}
+
+/* Стили для горизонтальной линии */
+.form-group hr {
+    border: none;
+    border-bottom: 1px solid #A9A9A9; 
+    margin-top: -10px; 
+    transition: border-bottom-color 0.3s ease; 
+}
+
+/* Стили при наведении на группу формы */
+.form-group:hover hr {
+    border-bottom-color: #000000; 
+}
+
+.submit-btn {
+    width: 100px; 
+    height: 40px; 
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #2C4058;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 30px;
+    margin-left: 125px;
+    display: block;
+ 
+}
+
+.submit-btn:hover {
+    background-color: #2C4058;
+    color: #ffffff;
+}
+
+.custom-marker {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.custom-marker .inner-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #7E5AFF;
+    border-radius: 50%;
+}
+
+.footer {
+    width: 1600px;
+    height: 449px;
+    position: absolute;
+    background: linear-gradient(351.06deg, #4B6CB7 7.19%, #182848 93.21%), 
+                url('img/6cb.png') no-repeat center center;
+    background-size: cover;
+    opacity: 1;
+    margin-left: -130px;
+}
+
+.footer-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.footer-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(251.06deg, #7E5AFF -4.19%, #55B7FF 143.21%);
+    opacity: 0.4;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 50px;
+    color: #FFFFFF;
+}
+
+.footer-logo {
+    width: 241px;
+    height: 54px;
+    margin-bottom: -360px;
+    margin-left: 300px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.footer-credits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    text-align: left;
+    margin-bottom: -550px;
+    margin-left: -750px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 20px;
+    margin-right: -80px; 
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    margin-bottom: -370px;
+}
+
+.social-icon:hover img {
+    opacity: 1;
+}
+
+
+
+/* Медиазапрос для устройств с шириной экрана до 1200px */
+@media (max-width: 1200px) {
+    .projects-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-details,
+    .project-images {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .project-images {
+        margin-top: 20px;
+    }
+}
+
+/* Медиазапрос для устройств с шириной экрана до 992px */
+@media (max-width: 992px) {
+    .header {
+        min-height: 600px;
+        background-size: cover;
+    }
+
+    .header-text {
+        font-size: 50px;
+    }
+
+    .subheading-text {
+        font-size: 14px;
+    }
+
+    .nav-container {
+        padding: 60px 15px;
+    }
+
+    .project-details {
+        padding-top: 30px;
+    }
+
+    .details-btn {
+        width: 160px;
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .gallery-images {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .footer {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        color: #2C4058;
+    }
+
+    .footer-logo,
+    .footer-social-icons {
         margin-bottom: 20px;
     }
-    
-    .contact-content {
-        display: flex;
-        justify-content: space-between;
+}
+
+/* Медиазапрос для устройств с шириной экрана до 768px */
+@media (max-width: 768px) {
+    .header {
+        min-height: 500px;
+    }
+
+    .heading-text {
+        font-size: 40px;
+    }
+
+    .subheading-text {
+        font-size: 12px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 15px;
+    }
+
+    .projects-container {
+        margin: 40px auto;
+    }
+
+    .project-details {
+        padding: 20px 0;
+    }
+
+    .image-1 img,
+    .image-2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .news-title {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .news-text {
+        font-size: 32px;
+    }
+
+    .articles-container {
+        flex-direction: column;
         gap: 20px;
     }
-    
 
-    .contact-info {
-        width: 50%;
-        font-family: 'FontAwesome', sans-serif;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 28px;
-        color: #2C4058;
-    }
-    
-    .custom-icon {
-        color: #7E5AFF;
-        margin-right: 10px;
-    }
-    
-    .contact-form {
-        width: 50%;
-    }
-    
-    .form-group {
-        margin-bottom: 20px;
-    }
-    
-    .input-field {
+    .article {
         width: 100%;
-        height: 41px;
-        border: none;
-        border-bottom: 1px solid #2C4058;
-     
-        color: #060505;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 27px;
-        padding: 10px;
-        box-sizing: border-box;
-        opacity: 0.8;
     }
-    
-    .input-field::placeholder {
-        color: #4B5562;
-    }
-    
-    .submit-btn {
-        width: 140px;
-        height: 50px;
-        background: #ffffff;
-        color: #000000;
-        font-family: 'Montserrat', sans-serif;
+
+    .article-title {
         font-size: 18px;
-        font-weight: 400;
-        line-height: 27px;
+    }
+
+    .article-description {
+        font-size: 14px;
+    }
+
+    .footer-content {
+        padding: 0 15px;
+    }
+}
+
+/* Медиазапрос для устройств с шириной экрана до 576px */
+@media (max-width: 576px) {
+    .header {
+        min-height: 400px;
+    }
+
+    .heading-text {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .subheading-text {
+        font-size: 10px;
+    }
+
+    .nav-container {
+        padding: 30px 15px;
+    }
+
+    .projects-title {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .projects-text {
+        font-size: 36px;
+    }
+
+    .gallery-images {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+
+    .footer-copyright {
+        margin-left: 0;
         text-align: center;
-        border: 1px solid #2C4058;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        margin-top: 90px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-left: 100px;
-    }
-    
-    .submit-btn:hover {
-        background-color: #2C4058;
-        color: #ffffff;
-
-    }
-    
-    hr {
-        border: none;
-        margin: 10px 0;
     }
 
-    .custom-marker {
-        width: 50px;
-        height: 50px;
-        background-color: white;
-        border-radius: 50%;
-        display: flex;
+    .footer-social-icons {
+        margin-right: 0;
         justify-content: center;
-        align-items: center;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        position: relative;
     }
-    
-    .custom-marker .inner-circle {
-        width: 20px;
-        height: 20px;
-        background-color: #7E5AFF;
-        border-radius: 50%;
-    }
+}
+
