@@ -1,0 +1,1320 @@
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+  /* Плавная прокрутка */
+  html {
+    scroll-behavior: smooth;
+  }
+
+.page {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+}
+
+/* Хедер */
+.header {
+    width: 100%;
+    min-height: 800px;
+    position: relative;
+    background: 
+        linear-gradient(200.43deg, rgba(126, 90, 255, 0.5) 16.9%, rgba(85, 183, 255, 0.5) 83.27%),
+        url('img/45.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Слайдер в хедере */
+.header-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 800px; 
+}
+
+.header-slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.header-slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+.header-slide.previous {
+  left: -100%;
+}
+
+/* Слой наложения градиента для достижения нужного цвета */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(200.43deg, rgba(126, 90, 255, 0.6) 16.9%, rgba(85, 183, 255, 0.6) 83.27%);
+    z-index: 1;
+}
+
+/* Навигация */
+.nav-container {
+    width: 100%;
+    max-width: 1070px;
+    height: 54px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 15px;
+}
+
+.nav-container,
+.heading-text,
+.subheading-text,
+.social-icons,
+.dots-container {
+    position: relative;
+    z-index: 2;
+}
+
+.logo img {
+    width: 221px;
+    height: 44px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.menu-ellipse {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.menu-ellipse.active {
+    background-color: #FFFFFF;
+}
+
+.menu a {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.6px;
+    text-align: left;
+    text-decoration: none;
+    color: #ffffff;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+    color: #55B7FF;
+}
+
+.menu-ellipse:hover,
+.menu-ellipse:focus {
+    background-color: #FFFFFF;
+}
+
+.social-icons ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+}
+
+.social-icons li {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover,
+.social-icons img:focus {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Заголовок и подзаголовок */
+.heading-text {
+    width: 100%;
+    max-width: 919px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 97.52px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.subheading-text {
+    width: 100%;
+    max-width: 614.34px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.94px;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* Стрелка */
+.arrow-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 2; 
+    transition: background-color 0.3s ease; 
+}
+
+.arrow-container img {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s ease; 
+}
+
+.arrow-container:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.arrow-container:hover img {
+    transform: scale(1.2); 
+}
+
+/* Контейнер точек (Dots) в хедере */
+.dots-container {
+    width: 10px;
+    position: absolute;
+    top: 270px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+    background: transparent;
+}
+
+.dot {
+    margin-bottom: 60px;
+}
+
+.ellipse {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ellipse.active {
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
+}
+
+.ellipse:hover,
+.ellipse:focus {
+    background-color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+/* Контейнер Projects */
+.projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* Контейнер Title */
+.projects-title {
+    width: 100%;
+    max-width: 324px;
+    height: 84px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Линия над текстом */
+.projects-line {
+    width: 100px;
+    height: 0;
+    border-top: 1px solid #2C4058;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+/* Текст заголовка */
+.projects-text {
+    width: 100%;
+    max-width: 324px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53.64px;
+    text-align: center;
+    color: #2C4058;
+    padding-top: 0px;
+    margin-top: 20px;
+}
+
+/* Контент внутри секции Projects */
+.projects-content {
+    width: 100%;
+    max-width: 1385px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+/* Секция с изображениями */
+.project-images {
+    width: 845px;
+    height: 527px;
+    position: relative;
+    margin-top: -40px;
+}
+
+.image-1 {
+    width: 100%;
+    max-width: 630px;
+    height: 470px;
+    position: absolute;
+    top: 57px;
+    left: 0;
+}
+
+.image-1 img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.image-2 {
+    width: 100%;
+    max-width: 575px;
+    height: 450px;
+    position: absolute;
+    top: 100px;
+    left: 260px;
+}
+
+.image-2 img {
+    width: 80%;
+    height: 70%;
+    object-fit: cover;
+    margin-left: -80px;
+}
+
+/* Секция с текстовой информацией о проекте */
+.project-details {
+    width: 100%;
+    max-width: 470px;
+    height: 350px;
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.project-detail-text {
+    margin-bottom: 20px;
+}
+
+.detail-title-small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #2C4058;
+    margin-bottom: 10px;
+}
+
+.detail-title-large {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2C4058;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #2C4058;
+    text-align: justify;
+}
+
+/* Кнопка More Details */
+.more-details-button {
+    margin-top: 50px;
+}
+
+.details-btn {
+    width: 190px;
+    height: 50px;
+    border: 1px solid #2C4058;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #2C4058;
+    color: #FFFFFF;
+}
+
+.projects-content .more-details-button {
+    position: relative;
+    z-index: 10;
+    margin-top: 40px;
+}
+
+/* Информация о местоположении */
+.location-info {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.location-icon {
+    width: 9px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.location-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 20.43px;
+    color: #000000;
+}
+
+/* Стиль для Project Content 2 */
+.projects-content-2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto 0;
+    max-width: 1385px;
+    padding-top: 60px;
+}
+
+.projects-content-2 .project-details {
+    text-align: left;
+}
+
+.projects-content-2 .location-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.projects-content-2 .location-icon {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.projects-content-2 .image-2 {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+}
+
+.projects-content-2 .image-1 {
+    position: absolute;
+    top: 90px;
+    left: 220px;
+}
+
+/* News Container */
+.news-container {
+    position: relative;
+    width: 100vw;
+    height: 978px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 0;
+    background:
+        linear-gradient(237.1deg, rgba(36, 204, 250, 0.5) 11.16%, rgba(60, 127, 212, 0.5) 89.18%),
+        url('img1.') no-repeat center center;
+    background-size: cover;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+    overflow: hidden;
+}
+
+/* Слайдер в News */
+.news-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 70px;
+  transition: transform 0.5s ease-in-out;
+  margin-left: 40px;
+  position: relative;
+  
+}
+
+.news-slide {
+    min-width: 33.33%; 
+    margin-right: -80px; 
+    box-sizing: border-box;
+    transition: transform 0.5s ease-in-out;
+    flex-shrink: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+/* Title Section */
+.news-title {
+    width: 327px;
+    height: 84px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    position: relative;
+    text-align: center;
+
+}
+
+
+.news-line {
+    width: 100px;
+    border-top: 1px solid #FFFFFF;
+    margin: 0 auto 10px auto;
+}
+
+.news-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53.64px;
+    color: #FFFFFF;
+    margin-top: 25px;
+}
+
+/* Articles Section */
+.articles-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 60px; 
+}
+
+.article {
+    width: 340px;
+    height: 514px;
+    border: 1px solid #FFFFFF;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 120px;
+    
+    
+}
+
+.article-image {
+    width: 100%;
+    height: 240px;
+    margin: 0;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.article-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26.82px;
+    color: #2C4058;
+    text-align: left;
+    margin-left: 20px;
+    
+}
+
+.article-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24.51px;
+    color: #2C4058;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: -30px;
+}
+
+.article-author {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -10px;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    margin-left: 10px;
+}
+
+.author-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.94px;
+    color: #2C4058;
+    margin-top: -5px;
+}
+
+.author-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    color: #55B7FF;
+    margin-top: 10px;
+    margin-top: -5px;
+}
+
+/* Стрелки слайдера */
+.slider-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    margin-top: 20px;
+}
+
+.left-arrow {
+    left: 70px;
+}
+
+.right-arrow {
+    right: 70px;
+}
+
+.slider-arrow img {
+    width: 40px;
+    height: 40px;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Секция для индикаторов Dots */
+.slider-dots {
+    width: 210px;
+    height: 10px;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+    margin-top: 70px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #FFFFFF;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* Gallery Container */
+.gallery-container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gallery-line {
+    width: 100px;
+    height: 1px;
+    background-color: #2C4058;
+    margin: 0 auto 10px auto;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.gallery-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #2C4058;
+    margin-bottom: 50px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.large-image {
+    width: 580px;
+    height: 438px;
+    margin-bottom: 20px; 
+}
+
+.small-image {
+    width: 285px;
+    height: 214px;
+    margin-bottom: 10px; 
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-button {
+    text-align: center;
+    margin-top: -140px;
+    padding-bottom: 60px;
+}
+
+.see-more-btn {
+    width: 190px;
+    height: 50px;
+    border: 1px solid #2C4058;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #2C4058;
+    color: #FFFFFF;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: 580px 285px 285px; 
+    grid-template-rows: 438px 214px; 
+    grid-gap: 20px; 
+    justify-content: center; 
+    margin: 0 auto;
+}
+
+.large-image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+.small-image-1 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.small-image-2 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.small-image-3 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.small-image-4 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.contact-container {
+    position: relative;
+    width: 100%; 
+    max-width: 1600px; 
+    height: 500px;
+    margin: 0 auto;
+}
+
+#map {
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    z-index: 500;
+}
+
+.contact-form-container {
+    width: 550px; 
+    height: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; 
+    z-index: 1000; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+
+}
+
+/* Псевдоэлемент для добавления фона */
+.contact-form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/3333.png') center center / cover no-repeat;  
+    z-index: -1; 
+    opacity: 6%; 
+}
+
+.contact-form-container * {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; 
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: #2C4058;
+    margin-bottom: 25px;
+}
+
+.contact-line {
+    width: 100px; 
+    height: 1px;
+    background-color: #2C4058; 
+    margin: 0 auto 10px auto; 
+    margin-top: 10px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
+.contact-info {
+    width: 55%; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 16px; 
+    font-weight: 400; 
+    line-height: 1.6; 
+    color: #2C4058;
+}
+
+.custom-icon {
+    color: #7E5AFF;
+    margin-right: 10px; 
+    font-size: 10px; 
+    vertical-align: middle; 
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.contact-form {
+    width: 45%; 
+}
+
+.form-group {
+    margin-bottom: 10px; 
+}
+
+/* Стили для текстового поля и email */
+.input-field {
+    width: 100%;
+    height: 41px;
+    border: none;
+    color: #A9A9A9; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+    padding-left: 5px; 
+    box-sizing: border-box;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    background-color: transparent; 
+    margin-bottom: 12px; 
+}
+
+.input-field::placeholder {
+    color: #A9A9A9; 
+}
+
+/* Стили при фокусе на поле ввода */
+.input-field:focus {
+    outline: none; 
+    color: #000000;
+    border-bottom-color: #000000; 
+}
+
+/* Стили при наведении на поле ввода */
+.input-field:hover {
+    color: #000000; 
+    border-bottom-color: #000000;
+}
+
+/* Стили для горизонтальной линии */
+.form-group hr {
+    border: none;
+    border-bottom: 1px solid #A9A9A9; 
+    margin-top: -10px; 
+    transition: border-bottom-color 0.3s ease; 
+}
+
+/* Стили при наведении на группу формы */
+.form-group:hover hr {
+    border-bottom-color: #000000; 
+}
+
+.submit-btn {
+    width: 100px; 
+    height: 40px; 
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #2C4058;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 30px;
+    margin-left: 125px;
+    display: block;
+ 
+}
+
+.submit-btn:hover {
+    background-color: #2C4058;
+    color: #ffffff;
+}
+
+.custom-marker {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.custom-marker .inner-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #7E5AFF;
+    border-radius: 50%;
+}
+
+.footer {
+    width: 1600px;
+    height: 449px;
+    position: absolute;
+    background: linear-gradient(351.06deg, #4B6CB7 7.19%, #182848 93.21%), 
+                url('img/6cb.png') no-repeat center center;
+    background-size: cover;
+    opacity: 1;
+    margin-left: -130px;
+}
+
+.footer-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.footer-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(251.06deg, #7E5AFF -4.19%, #55B7FF 143.21%);
+    opacity: 0.4;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 50px;
+    color: #FFFFFF;
+}
+
+.footer-logo {
+    width: 241px;
+    height: 54px;
+    margin-bottom: -360px;
+    margin-left: 300px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.footer-credits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    text-align: left;
+    margin-bottom: -550px;
+    margin-left: -750px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 20px;
+    margin-right: -80px; 
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    margin-bottom: -370px;
+}
+
+.social-icon:hover img {
+    opacity: 1;
+}
+
+
+
+/* Медиазапрос для устройств с шириной экрана до 1200px */
+@media (max-width: 1200px) {
+    .projects-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-details,
+    .project-images {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .project-images {
+        margin-top: 20px;
+    }
+}
+
+/* Медиазапрос для устройств с шириной экрана до 992px */
+@media (max-width: 992px) {
+    .header {
+        min-height: 600px;
+        background-size: cover;
+    }
+
+    .header-text {
+        font-size: 50px;
+    }
+
+    .subheading-text {
+        font-size: 14px;
+    }
+
+    .nav-container {
+        padding: 60px 15px;
+    }
+
+    .project-details {
+        padding-top: 30px;
+    }
+
+    .details-btn {
+        width: 160px;
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .gallery-images {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .footer {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-social-icons {
+        margin-bottom: 20px;
+    }
+}
+
+/* Медиазапрос для устройств с шириной экрана до 768px */
+@media (max-width: 768px) {
+    .header {
+        min-height: 500px;
+    }
+
+    .heading-text {
+        font-size: 40px;
+    }
+
+    .subheading-text {
+        font-size: 12px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 15px;
+    }
+
+    .projects-container {
+        margin: 40px auto;
+    }
+
+    .project-details {
+        padding: 20px 0;
+    }
+
+    .image-1 img,
+    .image-2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .news-title {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .news-text {
+        font-size: 32px;
+    }
+
+    .articles-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .article {
+        width: 100%;
+    }
+
+    .article-title {
+        font-size: 18px;
+    }
+
+    .article-description {
+        font-size: 14px;
+    }
+
+    .footer-content {
+        padding: 0 15px;
+    }
+}
+
+/* Медиазапрос для устройств с шириной экрана до 576px */
+@media (max-width: 576px) {
+    .header {
+        min-height: 400px;
+    }
+
+    .heading-text {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .subheading-text {
+        font-size: 10px;
+    }
+
+    .nav-container {
+        padding: 30px 15px;
+    }
+
+    .projects-title {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .projects-text {
+        font-size: 36px;
+    }
+
+    .gallery-images {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+
+    .footer-copyright {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .footer-social-icons {
+        margin-right: 0;
+        justify-content: center;
+    }
+}
+
