@@ -12,13 +12,46 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Переключение активного состояния для Dots в хедере
-    const headerDots = document.querySelectorAll('.dots-container .ellipse');
-    if (headerDots.length > 0) {
-        headerDots.forEach((dot) => {
-            dot.addEventListener('click', () => {
-                headerDots.forEach(d => d.classList.remove('active'));
-                dot.classList.add('active');
+    // Слайдер HEADER с точками
+    let headerSlides = document.querySelectorAll('.header-slide');
+    let headerDots = document.querySelectorAll('.dots-container .dot');
+    let currentHeaderSlide = 0;
+    const headerSlideInterval = 4000; // Время смены слайдов
+
+    // Добавим текст на все слайды
+    headerSlides.forEach(slide => {
+        let headingText = document.createElement('h1');
+        headingText.classList.add('heading-text');
+        headingText.innerText = 'SIMPLE & MODERN';
+
+        let subheadingText = document.createElement('p');
+        subheadingText.classList.add('subheading-text');
+        subheadingText.innerText = 'WE MAKE THE WORLD BEAUTIFUL EVERYDAY';
+
+        slide.appendChild(headingText);
+        slide.appendChild(subheadingText);
+    });
+
+    function changeHeaderSlide(index) {
+        // Убираем класс 'active' у текущего слайда и точки
+        headerSlides[currentHeaderSlide].classList.remove('active');
+        headerDots[currentHeaderSlide].classList.remove('active');
+
+        // Устанавливаем новый индекс слайда
+        currentHeaderSlide = (typeof index === 'number') ? index : (currentHeaderSlide + 1) % headerSlides.length;
+
+        // Добавляем класс 'active' новому слайду и точке
+        headerSlides[currentHeaderSlide].classList.add('active');
+        headerDots[currentHeaderSlide].classList.add('active');
+    }
+
+    if (headerSlides.length > 0 && headerDots.length > 0) {
+        setInterval(changeHeaderSlide, headerSlideInterval);
+
+        // Обрабатываем клик по точкам для ручного переключения слайдов
+        headerDots.forEach((dot, index) => {
+            dot.addEventListener('click', function () {
+                changeHeaderSlide(index);
             });
         });
     }
@@ -56,12 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // Функция для добавления маркера и отображения формы
             function addMarker(latlng) {
                 if (currentMarker) {
-                    
                     map.removeLayer(currentMarker);
                     hideForm();
                     currentMarker = null;
                 } else {
-                    
                     currentMarker = L.marker(latlng).addTo(map);
 
                     currentMarker.on('click', function () {
@@ -120,18 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Слайдер HEADER
-    let headerSlides = document.querySelectorAll('.header-slide');
-    let currentHeaderSlide = 0;
-
-    if (headerSlides.length > 0) {
-        setInterval(() => {
-            headerSlides[currentHeaderSlide].classList.remove('active');
-            currentHeaderSlide = (currentHeaderSlide + 1) % headerSlides.length;
-            headerSlides[currentHeaderSlide].classList.add('active');
-        }, 4000);
-    }
-
     // Слайдер NEWS
     let newsSlides = document.querySelectorAll('.news-slide');
     currentNewsSlide = 0;
@@ -139,18 +158,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateNewsSlider() {
         newsSlides.forEach((slide, index) => {
             if (index === currentNewsSlide) {
-                slide.style.opacity = '1'; 
-                slide.style.zIndex = '2'; 
+                slide.style.opacity = '1';
+                slide.style.zIndex = '2';
             } else {
-                slide.style.opacity = '0'; 
-                slide.style.zIndex = '1'; 
+                slide.style.opacity = '0';
+                slide.style.zIndex = '1';
             }
         });
     }
 
     if (newsSlides.length > 0) {
         setInterval(() => {
-            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length; 
+            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
             updateNewsSlider();
         }, 4000);
     }
@@ -160,12 +179,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const rightArrow = document.querySelector('.right-arrow');
 
     if (leftArrow && rightArrow) {
-        leftArrow.addEventListener('click', function() {
+        leftArrow.addEventListener('click', function () {
             currentNewsSlide = (currentNewsSlide - 1 + newsSlides.length) % newsSlides.length;
             updateNewsSlider();
         });
 
-        rightArrow.addEventListener('click', function() {
+        rightArrow.addEventListener('click', function () {
             currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
             updateNewsSlider();
         });
@@ -186,5 +205,3 @@ document.addEventListener('DOMContentLoaded', function () {
         updateNewsSlider();
     }
 });
-
-

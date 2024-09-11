@@ -45,16 +45,20 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out; 
 }
 
 .header-slide.active {
   left: 0;
   opacity: 1;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .header-slide.previous {
   left: -100%;
+  z-index: 0;
 }
 
 /* Слой наложения градиента для достижения нужного цвета */
@@ -250,7 +254,18 @@ body {
 
 .dot {
     margin-bottom: 60px;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc; /* Цвет для неактивных точек */
+    border-radius: 50%;
+    display: inline-block;
+    margin: 20px;
+    
 }
+
+.dot.active {
+    background-color: #fff; /* Цвет для активной точки */
+  }
 
 .ellipse {
     width: 10px;
@@ -516,6 +531,7 @@ body {
   transition: transform 0.5s ease-in-out;
   margin-left: 40px;
   position: relative;
+  will-change: transform;
   
 }
 
