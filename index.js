@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Переключение активного состояния для меню (menu-ellipse)
+    // Toggle active state for menu ellipses
     const menuEllipses = document.querySelectorAll('.menu-ellipse');
     if (menuEllipses.length > 0) {
         menuEllipses.forEach(function (ellipse) {
@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Слайдер HEADER с точками
+    // HEADER slider with dots
     let headerSlides = document.querySelectorAll('.header-slide');
     let headerDots = document.querySelectorAll('.dots-container .dot');
     let currentHeaderSlide = 0;
-    const headerSlideInterval = 4000; // Время смены слайдов
+    const headerSlideInterval = 4000; // Slide change interval time
 
-    // Добавим текст на все слайды
+    // Add text to all slides
     headerSlides.forEach(slide => {
         let headingText = document.createElement('h1');
         headingText.classList.add('heading-text');
@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function changeHeaderSlide(index) {
-        // Убираем класс 'active' у текущего слайда и точки
+        // Remove 'active' class from the current slide and dot
         headerSlides[currentHeaderSlide].classList.remove('active');
         headerDots[currentHeaderSlide].classList.remove('active');
 
-        // Устанавливаем новый индекс слайда
+        // Set a new slide index
         currentHeaderSlide = (typeof index === 'number') ? index : (currentHeaderSlide + 1) % headerSlides.length;
 
-        // Добавляем класс 'active' новому слайду и точке
+        // Add 'active' class to the new slide and dot
         headerSlides[currentHeaderSlide].classList.add('active');
         headerDots[currentHeaderSlide].classList.add('active');
     }
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (headerSlides.length > 0 && headerDots.length > 0) {
         setInterval(changeHeaderSlide, headerSlideInterval);
 
-        // Обрабатываем клик по точкам для ручного переключения слайдов
+        // Handle click on dots for manual slide change
         headerDots.forEach((dot, index) => {
             dot.addEventListener('click', function () {
                 changeHeaderSlide(index);
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Переключение активного состояния для Dots в слайдере новостей
+    // Toggle active state for Dots in the news slider
     const newsDots = document.querySelectorAll('.slider-dots .dot');
     let currentNewsSlide = 0;
 
@@ -69,24 +69,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Инициализация карты
+    // Map initialization
     const mapElement = document.getElementById('map');
     if (mapElement) {
         const map = L.map('map').setView([51.505, -0.09], 13);
 
-        // Добавление слоя карты OpenStreetMap
+        // Add OpenStreetMap layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
         }).addTo(map);
 
-        // Создание формы и добавление её в документ
+        // Create form and add it to the document
         const contactForm = document.querySelector('.contact-form-container');
         if (contactForm) {
             contactForm.style.display = 'none';
 
             let currentMarker = null;
 
-            // Функция для добавления маркера и отображения формы
+            // Function to add marker and show form
             function addMarker(latlng) {
                 if (currentMarker) {
                     map.removeLayer(currentMarker);
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Функции для показа и скрытия формы
+            // Functions to show and hide form
             function showForm() {
                 contactForm.style.display = 'block';
                 contactForm.style.opacity = '1';
@@ -124,16 +124,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 500);
             }
 
-            // Обработчик клика по карте для добавления маркера и отображения формы
+            // Map click handler for adding marker and showing the form
             map.on('click', function (e) {
                 const latlng = e.latlng;
                 addMarker(latlng);
             });
 
-            // Скрытие формы и маркера при клике на карте, если клик не по маркеру
+            // Hide form and marker when clicking on the map outside the marker
             map.on('click', function (e) {
                 if (currentMarker && !currentMarker.getLatLng().equals(e.latlng)) {
-                    map.removeLayer(currentMarker); // Удаляем маркер
+                    map.removeLayer(currentMarker); // Remove marker
                     currentMarker = null;
                     hideForm();
                 }
@@ -141,17 +141,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // элемент стрелки
+    // Arrow element
     const arrow = document.querySelector('.arrow-container');
     if (arrow) {
         arrow.addEventListener('click', function () {
-            // Projects и выполняем плавный скролл
+            // Scroll smoothly to Projects section
             const projectsSection = document.getElementById('projects');
             projectsSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 
-    // Слайдер NEWS
+    // NEWS slider
     let newsSlides = document.querySelectorAll('.news-slide');
     currentNewsSlide = 0;
 
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 4000);
     }
 
-    // Управление стрелками
+    // Arrow control for the news slider
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
 
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Скролл к секции с картой при клике на "CONTACT" в меню
+    // Scroll to map section when clicking "CONTACT" in the menu
     const contactLink = document.querySelector('a[href="#contact"]');
     if (contactLink) {
         contactLink.addEventListener('click', function (e) {
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Инициализация начального состояния слайдера новостей
+    // Initialize the news slider
     if (newsSlides.length > 0) {
         updateNewsSlider();
     }
